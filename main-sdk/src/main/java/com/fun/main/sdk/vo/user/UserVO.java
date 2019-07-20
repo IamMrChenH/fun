@@ -11,7 +11,6 @@ import lombok.Data;
  */
 @ApiModel("用户参数")
 @Data
-@AllArgsConstructor
 public class UserVO {
 
     @ApiParam

@@ -23,7 +23,9 @@ public class UserController implements UserApi {
     @Override
     public List<UserVO> getUserListPage() {
         ArrayList<UserVO> userVOS = Lists.newArrayList();
-        userVOS.add(new UserVO(1L));
+        UserVO e = new UserVO();
+        e.setId(1L);
+        userVOS.add(e);
         return userVOS;
     }
 

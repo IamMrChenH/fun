@@ -4,9 +4,9 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>com.fun</groupId>
-        <artifactId>fun-base</artifactId>
+        <artifactId>fun-parent</artifactId>
         <version>1.0.0-SNAPSHOT</version>
-        <relativePath>../fun-base/pom.xml</relativePath>
+        <relativePath>../fun-parent/pom.xml</relativePath>
     </parent>
     <groupId>com.fun</groupId>
     <artifactId>main-server</artifactId>
@@ -23,6 +23,20 @@
             <groupId>com.fun</groupId>
             <artifactId>main-sdk</artifactId>
             <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>com.fun</groupId>
+            <artifactId>fun-base</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-jpa</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <scope>runtime</scope>
         </dependency>
     </dependencies>
 
