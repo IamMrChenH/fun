@@ -1,5 +1,6 @@
 package com.fun.main.sdk.api;
 
+import com.fun.main.sdk.vo.user.UserLoginDTO;
 import com.fun.main.sdk.vo.user.UserVO;
 import io.swagger.annotations.*;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -26,5 +27,5 @@ public interface UserApi {
 
     @ApiOperation(value = "根据名称获取用户信息", notes = "根据名称获取用户信息")
     @GetMapping("username/{name}")
-    UserVO getUserByName(@PathVariable("name") @ApiParam(name = "name", value = "用户登录名", required = true) String name);
+    UserLoginDTO getUserByName(@PathVariable("name") @ApiParam(name = "name", value = "用户登录名", required = true) String name);
 }

@@ -12,7 +12,7 @@ import lombok.Data;
 @Data
 public class UserVO {
 
-    @ApiParam
+    @ApiParam(name = "用户id")
     private Long id;
 
 }

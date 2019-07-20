@@ -1,9 +1,9 @@
 package com.fun.main.server.gateways.controller;
 
 import com.fun.main.sdk.api.UserApi;
+import com.fun.main.sdk.vo.user.UserLoginDTO;
 import com.fun.main.sdk.vo.user.UserVO;
 import com.fun.main.server.domain.service.UserService;
-import com.google.common.collect.Lists;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -30,7 +30,7 @@ public class UserController implements UserApi {
     }
 
     @Override
-    public UserVO getUserByName(String name) {
-        return null;
+    public UserLoginDTO getUserByName(String name) {
+        return userService.getUserByName(name);
     }
 }

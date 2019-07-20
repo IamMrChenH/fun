@@ -1,6 +1,7 @@
 package com.fun.main.server.domain.service;
 
 
+import com.fun.main.sdk.vo.user.UserLoginDTO;
 import com.fun.main.sdk.vo.user.UserVO;
 import com.fun.main.server.domain.entities.User;
 import com.fun.main.server.intefaces.mapper.UserMapper;
@@ -42,4 +43,8 @@ public class UserService {
         userRepository.delete(id);
     }
 
+    public UserLoginDTO getUserByName(String name) {
+        User user = userRepository.findOneByUserName(name);
+        return userMapper.toUserLoginDTO(user);
+    }
 }
