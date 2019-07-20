@@ -1,4 +1,4 @@
-package com.fun.fun.base.exceptions;
+package com.fun.base.exceptions;
 
 /**
  * @author IamMr

@@ -3,7 +3,7 @@
 // (powered by Fernflower decompiler)
 //
 
-package com.fun.fun.base.entities;
+package com.fun.base.entities;
 
 import javax.persistence.Column;
 import javax.persistence.GeneratedValue;

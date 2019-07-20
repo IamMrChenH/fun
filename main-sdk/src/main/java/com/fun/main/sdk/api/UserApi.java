@@ -21,7 +21,6 @@ public interface UserApi {
     UserVO getUserById(@PathVariable("id") @ApiParam(name = "id", value = "用户ID", required = true) Long id);
 
     @ApiOperation(value = "获取用户列表", notes = "获取用户的列表")
-    @ApiImplicitParam
     @GetMapping
     List<UserVO> getUserListPage();
 

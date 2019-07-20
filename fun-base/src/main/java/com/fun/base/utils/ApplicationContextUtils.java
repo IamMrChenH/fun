@@ -3,7 +3,7 @@
 // (powered by Fernflower decompiler)
 //
 
-package com.fun.fun.base.utils;
+package com.fun.base.utils;
 
 import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;

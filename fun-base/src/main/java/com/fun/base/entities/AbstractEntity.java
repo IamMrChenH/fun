@@ -3,10 +3,10 @@
 // (powered by Fernflower decompiler)
 //
 
-package com.fun.fun.base.entities;
+package com.fun.base.entities;
 
-import com.fun.fun.base.exceptions.BaseException;
-import com.fun.fun.base.utils.ApplicationContextUtils;
+import com.fun.base.exceptions.BaseException;
+import com.fun.base.utils.ApplicationContextUtils;
 
 import java.util.concurrent.ConcurrentHashMap;
 import javax.persistence.MappedSuperclass;
