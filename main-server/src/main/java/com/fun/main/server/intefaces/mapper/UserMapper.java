@@ -1,7 +1,7 @@
 package com.fun.main.server.intefaces.mapper;
 
 import com.fun.main.sdk.vo.user.UserVO;
-import com.fun.main.server.domain.User;
+import com.fun.main.server.domain.entities.User;
 import org.mapstruct.Mapper;
 
 /**
