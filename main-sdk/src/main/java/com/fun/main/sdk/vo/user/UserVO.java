@@ -2,7 +2,6 @@ package com.fun.main.sdk.vo.user;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiParam;
-import lombok.AllArgsConstructor;
 import lombok.Data;
 
 /**

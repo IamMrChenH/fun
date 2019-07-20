@@ -2,10 +2,11 @@ package com.fun.main.server.gateways.controller;
 
 import com.fun.main.sdk.api.UserApi;
 import com.fun.main.sdk.vo.user.UserVO;
+import com.fun.main.server.domain.service.UserService;
 import com.google.common.collect.Lists;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -15,18 +16,17 @@ import java.util.List;
 @RestController
 public class UserController implements UserApi {
 
+    @Autowired
+    private UserService userService;
+
     @Override
     public UserVO getUserById(Long id) {
-        return null;
+        return userService.findById(id);
     }
 
     @Override
     public List<UserVO> getUserListPage() {
-        ArrayList<UserVO> userVOS = Lists.newArrayList();
-        UserVO e = new UserVO();
-        e.setId(1L);
-        userVOS.add(e);
-        return userVOS;
+        return userService.findAll();
     }
 
     @Override

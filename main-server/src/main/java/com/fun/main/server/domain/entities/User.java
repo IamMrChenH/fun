@@ -4,6 +4,7 @@ import com.fun.base.entities.BaseAuditEntity;
 import com.fun.main.server.repository.UserRepository;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.experimental.Accessors;
 import org.hibernate.annotations.DynamicInsert;
 import org.hibernate.annotations.DynamicUpdate;
 
@@ -74,4 +75,12 @@ public class User extends BaseAuditEntity<UserRepository, User> {
     public Class getRepositoryClass() {
         return UserRepository.class;
     }
+
+    public static User getUserById(Long id) {
+        User user = new User();
+        user.setId(id);
+        return user.findOneAbsolute();
+    }
+
+
 }

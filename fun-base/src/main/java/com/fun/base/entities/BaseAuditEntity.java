@@ -5,16 +5,20 @@
 
 package com.fun.base.entities;
 
-import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.MappedSuperclass;
+import javax.persistence.*;
+
+import lombok.Getter;
+import lombok.Setter;
+import lombok.experimental.Accessors;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 @MappedSuperclass
+@Getter
+@Setter
+@Accessors(chain = true)
 public abstract class BaseAuditEntity<R extends JpaRepository, E extends BaseAuditEntity> extends AbstractAuditEntity<R, E> {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column
     private Long id;
 
