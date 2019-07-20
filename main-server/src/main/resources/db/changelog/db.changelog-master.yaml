@@ -1,0 +1,6 @@
+databaseChangeLog:
+  - preConditions:
+      - runningAs:
+          username: root
+  - include:
+      file: liquibase/main-master.xml

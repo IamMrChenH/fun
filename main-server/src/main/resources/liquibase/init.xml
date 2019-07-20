@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.0.xsd">
+
+    <changeSet id="user-1" author="chenhao">
+        <insert tableName="user">
+            <column name="id">1</column>
+            <column name="create_by">admin</column>
+            <column name="create_time">now()</column>
+            <column name="email">test@fun.com</column>
+            <column name="nick_name">管理员</column>
+            <column name="password">123456</column>
+            <column name="phone">10086</column>
+            <column name="remark">管理员的备注</column>
+            <column name="user_name">admin</column>
+        </insert>
+
+        <insert tableName="user">
+            <column name="id">2</column>
+            <column name="create_by">admin</column>
+            <column name="create_time">now()</column>
+            <column name="email">test@fun.com</column>
+            <column name="nick_name">用户</column>
+            <column name="password">123456</column>
+            <column name="phone">10086</column>
+            <column name="remark">用户的备注</column>
+            <column name="user_name">user1</column>
+        </insert>
+
+        <insert tableName="permission">
+            <column name="id">1</column>
+            <column name="create_by">admin</column>
+            <column name="create_time">now()</column>
+            <column name="code">code1</column>
+            <column name="method">GET</column>
+            <column name="name">权限1号</column>
+            <column name="remark">这是权限1号的备注</column>
+            <column name="uri">/**</column>
+        </insert>
+
+        <insert tableName="permission">
+            <column name="id">2</column>
+            <column name="create_by">admin</column>
+            <column name="create_time">now()</column>
+            <column name="code">code2</column>
+            <column name="method">GET</column>
+            <column name="name">权限2号</column>
+            <column name="remark">这是权限2号的备注</column>
+            <column name="uri">/v1/user/*</column>
+            <column name="parent_id">1</column>
+        </insert>
+
+        <insert tableName="role">
+            <column name="id">1</column>
+            <column name="create_by">admin</column>
+            <column name="create_time">now()</column>
+            <column name="code">role_code_1</column>
+            <column name="name">超级用户</column>
+            <column name="remark">超级用户</column>
+        </insert>
+
+        <insert tableName="role">
+            <column name="id">2</column>
+            <column name="create_by">admin</column>
+            <column name="create_time">now()</column>
+            <column name="code">role_code_2</column>
+            <column name="name">用户</column>
+            <column name="remark">用户</column>
+        </insert>
+
+        <insert tableName="role_permissions">
+            <column name="roles_id">1</column>
+            <column name="permissions_id">1</column>
+        </insert>
+
+        <insert tableName="role_permissions">
+            <column name="roles_id">2</column>
+            <column name="permissions_id">2</column>
+        </insert>
+
+        <insert tableName="user_roles">
+            <column name="users_id">1</column>
+            <column name="roles_id">1</column>
+        </insert>
+
+        <insert tableName="user_roles">
+            <column name="users_id">2</column>
+            <column name="roles_id">2</column>
+        </insert>
+
+    </changeSet>
+
+</databaseChangeLog>
