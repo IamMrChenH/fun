@@ -10,7 +10,6 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.security.web.authentication.ForwardAuthenticationSuccessHandler;
 
 import java.util.ArrayList;
 
@@ -40,19 +39,21 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 //        super.configure(http);
         ArrayList<String> permitMatcherList = Lists.newArrayList();
         permitMatcherList.add("/v1/auth/**");
-        permitMatcherList.add("/static/**");
+        permitMatcherList.add("/login.html");
+        permitMatcherList.add("/**");
 
         http.csrf().disable();
-        http.authorizeRequests()
+        http
+                .formLogin()
+//                .loginPage("/login.html")
+                .loginProcessingUrl("/index")
+                .defaultSuccessUrl("/sucess")
+                .and()
+                .authorizeRequests()
                 .antMatchers(permitMatcherList.toArray(new String[permitMatcherList.size()])).permitAll()
                 .anyRequest().authenticated()
-                .anyRequest().access("@rbacService.hasPermission(request,authentication)")
-                .and()
-                .formLogin()
-                .successHandler(new ForwardAuthenticationSuccessHandler("/sucess.html"))
-                .and().logout()
-                .and()
-                .httpBasic();
+                .anyRequest().access("@rbacService.hasPermission(request,authentication)");
+
     }
 
     @Override
