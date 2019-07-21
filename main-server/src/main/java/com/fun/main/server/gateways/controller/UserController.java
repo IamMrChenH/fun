@@ -5,6 +5,7 @@ import com.fun.main.sdk.vo.user.UserLoginDTO;
 import com.fun.main.sdk.vo.user.UserVO;
 import com.fun.main.server.domain.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -20,7 +21,7 @@ public class UserController implements UserApi {
     private UserService userService;
 
     @Override
-    public UserVO getUserById(Long id) {
+    public UserVO getUserById(@PathVariable Long id) {
         return userService.findById(id);
     }
 
@@ -30,7 +31,7 @@ public class UserController implements UserApi {
     }
 
     @Override
-    public UserLoginDTO getUserByName(String name) {
+    public UserLoginDTO getUserByName(@PathVariable String name) {
         return userService.getUserByName(name);
     }
 }
