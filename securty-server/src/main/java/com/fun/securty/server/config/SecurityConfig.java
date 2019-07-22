@@ -39,18 +39,26 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 //        super.configure(http);
         ArrayList<String> permitMatcherList = Lists.newArrayList();
         permitMatcherList.add("/v1/auth/**");
-        permitMatcherList.add("/v1/auth/**");
+        permitMatcherList.add("/auth/**");
 
         http.csrf().disable();
-        http.authorizeRequests()
-                .antMatchers(permitMatcherList.toArray(new String[permitMatcherList.size()])).permitAll()
-                .anyRequest().authenticated()
-                .anyRequest().access("@rbacService.hasPermission(request,authentication)")
-                .and()
+        http
                 .formLogin()
-                .and().logout()
+                //.loginPage("/v1/auth/login_page")
+                //指定登录接口 地址：端口/auth/login
+                .loginProcessingUrl("/auth/login")
+                //指定登录成功后，每次访问的地址
+                .defaultSuccessUrl("/v1/auth/info", true)
                 .and()
-                .httpBasic();
+                .logout()
+                .and()
+                .authorizeRequests()
+                //允许不用验证的接口
+                .antMatchers(permitMatcherList.toArray(new String[permitMatcherList.size()])).permitAll()
+                //下面所有接口需要通过验证才可以访问
+                .anyRequest().authenticated()
+                //这是权限验证
+                .anyRequest().access("@rbacService.hasPermission(request,authentication)");
     }
 
     @Override
