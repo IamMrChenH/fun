@@ -44,6 +44,6 @@ public class FunUserDetailsImpl implements UserDetailsService {
             authorities.addAll(collect);
         }
         String encode = passwordEncoder.encode(userLoginDTO.getPassword());
-        return new FunUser(name, encode, authorities);
+        return new FunUser(userLoginDTO.getId(), name, encode, authorities);
     }
 }

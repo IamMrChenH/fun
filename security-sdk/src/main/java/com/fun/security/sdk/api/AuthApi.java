@@ -2,9 +2,8 @@ package com.fun.security.sdk.api;
 
 import com.fun.security.sdk.vo.UserLoginVO;
 import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiOperation;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -26,5 +25,13 @@ public interface AuthApi {
     @PostMapping("logout")
     boolean logout();
 
+    @ApiOperation(value = "获取用户信息", notes = "获取用户信息！")
+    @GetMapping("info")
+    String getInfo();
+
+
+    @ApiOperation(value = "获取用户信息", notes = "获取用户信息！")
+    @GetMapping("user_id")
+    Long getUserId();
 
 }
